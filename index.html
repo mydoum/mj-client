@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Engie bot</title>
+    <title>Chatbot Ministère de la justice</title>
     <link rel="stylesheet" href="style.css">
     <link href="botchat.css" rel="stylesheet"/>
 </head>
@@ -10,6 +10,7 @@
     <div id="bot"/>
     <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
     <script>
+
       <!-- Little hashcode to make the user unique -->
       function hashCode(str) {
         var hash = 0;
@@ -30,6 +31,15 @@
         bot: {id: '1'},
         resize: 'detect',
       }, document.getElementById('bot'));
+
+      function removeClassNames() {
+        const botDiv = document.getElementById('bot');
+        ['wc-header'].forEach(function (c) {
+          botDiv.classList.remove(c);
+        });
+      }
+
+      removeClassNames()
     </script>
     <!--<iframe id="chatbox" src='https://webchat.botframework.com/embed/engie-chatbot?s=uNi1LIleXAE.cwA.AxE.sDYhjoXevEUMetE6yUpEkMpyQ9L5QOrQEYPaKGQqESs'></iframe>-->
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engie bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="botchat.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="bot"/>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
+    <script>
+      <!-- Little hashcode to make the user unique -->
+      function hashCode(str) {
+        var hash = 0;
+        if (str.length == 0) return hash;
+        for (i = 0; i < str.length; i++) {
+          char = str.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char;
+          hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash;
+      }
+
+      userId = hashCode(window.navigator.userAgent);
+
+      BotChat.App({
+        directLine: {secret: 'rUw3EX-clIU.cwA.sAQ.IghvTC1rYWsLcNyPHm5Q_-4QDBvVAWizv_19STb4ozA'},
+        user: {id: '1'/*userId*/},
+        bot: {id: '1'},
+        resize: 'detect',
+      }, document.getElementById('bot'));
+    </script>
+    <!--<iframe id="chatbox" src='https://webchat.botframework.com/embed/engie-chatbot?s=uNi1LIleXAE.cwA.AxE.sDYhjoXevEUMetE6yUpEkMpyQ9L5QOrQEYPaKGQqESs'></iframe>-->
+</body>
+</html>
